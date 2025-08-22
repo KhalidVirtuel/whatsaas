@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/.* api/index.php [QSA,L]
+
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+<FilesMatch "\.(css|js|png|jpe?g|webp|svg)$">
+  Header set Cache-Control "public, max-age=2592000, immutable"
+</FilesMatch>
